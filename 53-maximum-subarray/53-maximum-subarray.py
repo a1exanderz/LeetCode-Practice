@@ -39,7 +39,7 @@ class Solution:
             if sub_sum < 0:
                 sub_sum = 0
             sub_sum += n
-            print("n", n, "sub_sum", sub_sum)
+            # print("n", n, "sub_sum", sub_sum)
             max_sum = max(max_sum, sub_sum)
              
         return max_sum
