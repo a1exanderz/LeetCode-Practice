@@ -47,8 +47,6 @@ class Solution:
                     return pathP[i]
             except:
                 return pathP[i]
-            
-        return pathP[i]
         
                 
             
