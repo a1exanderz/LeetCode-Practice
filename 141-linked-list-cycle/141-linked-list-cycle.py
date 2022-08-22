@@ -7,21 +7,21 @@
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         
-        # Basic Solution: O(n^2) time and O(n) memory
+        # Basic Solution: O(n) time and O(n) memory
         # Create a list with all new values in the linked list. 
         # Traverse through the entire linked list.
         # If a node already exists in the list, return true.
         # If next node is None and true not returned, then return false.
         
-#         hashMap = []
+#         hashMap = {}
 #         curr = head
         
 #         while curr is not None:
 #             print(hashMap)
-#             if curr in hashMap:
+#             if curr in hashMap.keys():
 #                 return True
 #             else:
-#                 hashMap.append(curr)
+#                 hashMap[curr] = 0
 #             curr = curr.next
 #         return False
         
