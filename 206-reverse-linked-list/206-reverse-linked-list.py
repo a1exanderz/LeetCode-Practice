@@ -29,23 +29,37 @@ class Solution:
 #             i -= 1
 #             print(reverseList)
 
-############
-        # Solution 1: Iterative
+
+        # Solution 1: Iterative, O(n) time and O(1) memory
         # Use a two pointer approach. 
         # Pointer 1 is first set to None and Pointer 2 is first set to head
         # Save the current Pointer 2.next as a temp variable, and then set Pointer 2.next to Pointer 1
         # Pointer 1 should be set to Pointer 2, and Pointer 2 to the temp variable
         # Continue until Pointer 2 has no next
         
-        p1, p2 = None, head
+#         p1, p2 = None, head
         
-        while p2:
-            temp = p2.next
-            p2.next = p1
-            p1 = p2
-            p2 = temp
+#         while p2:
+#             temp = p2.next
+#             p2.next = p1
+#             p1 = p2
+#             p2 = temp
             
-        return p1
+#         return p1
+    
+        # Solution 2: Recursive
+        
+        if not head:
+            return None
+        
+        newHead = head
+        if head.next:
+            newHead = self.reverseList(head.next)
+            head.next.next = head
+        head.next = None
+        
+        return newHead
+        
             
             
             
