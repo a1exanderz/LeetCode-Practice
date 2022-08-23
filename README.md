@@ -1,2 +1,3 @@
 # LeetCode-Practice
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub)
+Records of my personal LeetCode practice starting August 10, 2022. 
+Created using [LeetHub](https://github.com/QasimWani/LeetHub)
