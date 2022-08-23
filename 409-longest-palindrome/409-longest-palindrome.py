@@ -18,15 +18,15 @@ class Solution:
                 hashTable[char] = 1
         
         totalLength = 0
-        oddCount = 0
+        odd = False
         for key in hashTable:
             if hashTable[key] % 2 == 0:
                 totalLength += hashTable[key]
             if hashTable[key] % 2 == 1:
-                oddCount += 1
+                odd = True
                 totalLength += hashTable[key] - 1
             
-        if oddCount > 0:
+        if odd:
             totalLength += 1
             
         return totalLength
