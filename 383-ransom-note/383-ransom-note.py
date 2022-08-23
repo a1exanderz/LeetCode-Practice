@@ -1,7 +1,7 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
         
-        # Solution O(n)
+        # Solution: O(n) time, O(n) memory, 15 minutes
         # Ransom string must be within magazine string
         # Construct a hashmap from the magazine O(m)
             # Hashmap should include key as letters and value as count
@@ -24,3 +24,5 @@ class Solution:
                     return False
         
         return True
+    
+        # Solution 2: O()
