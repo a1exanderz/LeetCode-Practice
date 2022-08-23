@@ -37,28 +37,28 @@ class Solution:
         # Pointer 1 should be set to Pointer 2, and Pointer 2 to the temp variable
         # Continue until Pointer 2 has no next
         
-#         p1, p2 = None, head
+        p1, p2 = None, head
         
-#         while p2:
-#             temp = p2.next
-#             p2.next = p1
-#             p1 = p2
-#             p2 = temp
+        while p2:
+            temp = p2.next
+            p2.next = p1
+            p1 = p2
+            p2 = temp
             
-#         return p1
+        return p1
     
         # Solution 2: Recursive
         
-        if not head:
-            return None
+#         if not head:
+#             return None
         
-        newHead = head
-        if head.next:
-            newHead = self.reverseList(head.next)
-            head.next.next = head
-        head.next = None
+#         newHead = head
+#         if head.next:
+#             newHead = self.reverseList(head.next)
+#             head.next.next = head
+#         head.next = None
         
-        return newHead
+#         return newHead
         
             
             
