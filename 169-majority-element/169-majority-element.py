@@ -18,4 +18,3 @@ class Solution:
                     return num
             else:
                 hashtable[num] = 1
-            
