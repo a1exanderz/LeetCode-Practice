@@ -12,12 +12,9 @@ class Solution:
         turtle = head
         rabbit = head
         
-        print(turtle.val, rabbit.val)
-        
         while rabbit.next != None and rabbit.next.next != None:
             turtle = turtle.next
             rabbit = rabbit.next.next
-            print(turtle.val, rabbit.val)
         
         if rabbit.next:
             return turtle.next
