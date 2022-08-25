@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
+        
         # Maximum depth = height
         # Use a recursive height solver
         
