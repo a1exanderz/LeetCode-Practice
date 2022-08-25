@@ -22,17 +22,18 @@ class Solution:
             diameter = leftHeight + rightHeight
             return diameter
         
-        maxDiameter = []
+        maxDiameter = [0]
         
         # Traverse through each node in the binary tree
         
         def dfs(root, maxDiameter):
             if root is not None:
-                if diameter(root) not in maxDiameter:
-                    maxDiameter.append(diameter(root))
+                if diameter(root) > maxDiameter[0]:
+                    maxDiameter[0] = diameter(root)
                 dfs(root.left, maxDiameter)
                 dfs(root.right, maxDiameter)
-            return max(maxDiameter)
+                
+            return maxDiameter[0]
                 
         return dfs(root, maxDiameter)
         
