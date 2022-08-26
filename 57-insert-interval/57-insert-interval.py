@@ -41,5 +41,5 @@ class Solution:
         return output
 
         #### PROPER METHOD
-        lol 
+        
 
