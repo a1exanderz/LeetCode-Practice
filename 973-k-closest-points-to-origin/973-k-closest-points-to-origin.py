@@ -8,6 +8,8 @@ class Solution:
         # Use a minHeap
         # Pop from the minHeap k times
         
+        # Time O(n) to create heap, O(log(n)) to pop from heap, Space O(n)
+        
         minHeap = []
         for point in points:
             minHeap.append([point[0]**2 + point[1]**2, point[0], point[1]])
