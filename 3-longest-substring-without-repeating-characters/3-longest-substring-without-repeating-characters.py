@@ -12,12 +12,13 @@ class Solution:
             i += 1
             hashTable = {}
             hashTable[c] = None
-            while i < len(s) and s[i] not in hashTable.keys():
-                hashTable[s[i]] = None
-                # print("hashtable", hashTable, "new index", i, "next character", s[i])
-                length += 1
-                # print("length", length)
-                i += 1
+            if i + maxLength < len(s) + 1:
+                while i < len(s) and s[i] not in hashTable.keys():
+                    hashTable[s[i]] = None
+                    # print("hashtable", hashTable, "new index", i, "next character", s[i])
+                    length += 1
+                    # print("length", length)
+                    i += 1
             maxLength = max(length, maxLength)
         
         return maxLength
