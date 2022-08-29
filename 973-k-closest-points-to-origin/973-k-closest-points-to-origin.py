@@ -10,18 +10,12 @@ class Solution:
         
         minHeap = []
         for point in points:
-            x = point[0]
-            y = point[1]
-            dist = x**2 + y**2
-            point = [dist, x, y]
-            minHeap.append(point)
+            minHeap.append([point[0]**2 + point[1]**2, point[0], point[1]])
         heapq.heapify(minHeap)
         print(minHeap)
         
         output = []
         for i in range(k):
-            closestPoint = heapq.heappop(minHeap)
-            print(closestPoint)
-            output.append(closestPoint[1::])
+            output.append(heapq.heappop(minHeap)[1::])
             
         return output
