@@ -11,7 +11,7 @@ class Solution:
         
         # Create a hashmap of all the connections
         # If a node is already in the hashmap, then no new copy is made and the old copy is returned as a neighbor
-        # Copy the node and add all neighbors to the copy node
+        # Copy the node and add all neighbors to the copy node using recursion
         
         hashTable = {}
         
