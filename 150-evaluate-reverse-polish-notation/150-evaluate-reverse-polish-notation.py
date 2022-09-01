@@ -65,17 +65,17 @@ class Solution:
         stack = []
         for token in tokens:
             if token == "*":
-                stack.append(int(stack.pop()) * int(stack.pop()))
+                stack.append(stack.pop() * stack.pop())
             elif token == "/":
                 v1, v2 = stack.pop(), stack.pop()
-                stack.append(int(int(v2) / int(v1)))
+                stack.append(int(v2 / v1))
             elif token == "+":
-                stack.append(int(stack.pop()) + int(stack.pop()))
+                stack.append(stack.pop() + stack.pop())
             elif token == "-":
                 v1, v2 = stack.pop(), stack.pop()
-                stack.append(int(v2) - int(v1))
+                stack.append(v2 - v1)
             else:
-                stack.append(token)
+                stack.append(int(token))
             
         return stack[0]
             
