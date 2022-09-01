@@ -63,19 +63,17 @@ class Solution:
         # Proceed until the token list is empty
         
         stack = []
-        tokenList = ["*", "/", "+", "-"]
         for token in tokens:
-            if token in tokenList:
-                v2 = stack.pop()
-                v1 = stack.pop()
-                if token == "*":
-                    stack.append(int(v1) * int(v2))
-                elif token == "/":
-                    stack.append(int(int(v1) / int(v2)))
-                elif token == "+":
-                    stack.append(int(v1) + int(v2))
-                elif token == "-":
-                    stack.append(int(v1) - int(v2))
+            if token == "*":
+                stack.append(int(stack.pop()) * int(stack.pop()))
+            elif token == "/":
+                v1, v2 = stack.pop(), stack.pop()
+                stack.append(int(int(v2) / int(v1)))
+            elif token == "+":
+                stack.append(int(stack.pop()) + int(stack.pop()))
+            elif token == "-":
+                v1, v2 = stack.pop(), stack.pop()
+                stack.append(int(v2) - int(v1))
             else:
                 stack.append(token)
             
