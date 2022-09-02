@@ -11,12 +11,11 @@ class Trie:
 
     def startsWith(self, prefix: str) -> bool:
         for word in self.trie:
-            if prefix in word and prefix == word[:len(prefix)]:
+            if prefix == word[:len(prefix)]:
                 return True
         return False
         
         
-
 # Your Trie object will be instantiated and called as such:
 # obj = Trie()
 # obj.insert(word)
