@@ -1,32 +1,14 @@
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        # for index, value in enumerate(nums):
-        #     for index2 in range(index + 1, len(nums)):
-        #         if target == value + nums[index2]:
-        #             return (index, index2)
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         
-        ########################
-        # using a hashmap: only need to run through the list once O(N) time
-        # for each value in the list (eg 2) , see if target - value (eg 9-2, look for 7) appears in the list
-        # looking through other values in the list using hashmap is O(1) time
-        # so, the solution is O(N) time overall
+        # Create a hashmap, key = num and value = index
+        # Iterate through each value of the array. If the difference between the value and target is not in the hashmap, add value to hashmap.
+        # Eventually, the difference will be found in the hashmap
         
-        # For each value in the list, obtain the value of the (target - value) key that appears in the hashmap
-        # Then, map the value of each number in the list to its index in the list
-        
-        hashmap = {}
-        for index, value in enumerate(nums):
-            if target-value in hashmap:
-                return index, hashmap[target-value]
-            hashmap[value] = index
-            
-        
-
-        
-        
-            
+        hashMap = {}
+        for index, num in enumerate(nums):
+            if (target - num) not in hashMap.keys():
+                hashMap[num] = index
+            else:
+                return [index, hashMap[target - num]]
+                
