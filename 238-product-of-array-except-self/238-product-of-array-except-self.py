@@ -7,7 +7,7 @@ class Solution:
         for i in range(len(nums) - 1):
             output.append(nums[i] * output[i])
         
-        print(output)
+        # print(output)
         
         # 1 2 3 4
         # 1 1 2 6
