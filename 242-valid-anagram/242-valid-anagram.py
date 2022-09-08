@@ -5,15 +5,15 @@ class Solution:
         dictTwo = {}
         
         for c in s:
-            if ord(c) in dictOne.keys():
-                dictOne[ord(c)] += 1
+            if c in dictOne.keys():
+                dictOne[c] += 1
             else:
-                dictOne[ord(c)] = 1
+                dictOne[c] = 1
                 
         for c in t:
-            if ord(c) in dictTwo.keys():
-                dictTwo[ord(c)] += 1
+            if c in dictTwo.keys():
+                dictTwo[c] += 1
             else:
-                dictTwo[ord(c)] = 1
+                dictTwo[c] = 1
                 
         return dictOne == dictTwo
