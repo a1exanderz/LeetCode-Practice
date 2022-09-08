@@ -16,12 +16,12 @@ class Solution:
                 else:
                     tempTable[c] = 1
 
-            tempItems = frozenset(tempTable.items())
+            # tempItems = frozenset(tempTable.items())
 
-            if tempItems not in mainTable.keys():
-                mainTable[tempItems] = [string]
+            if frozenset(tempTable.items()) not in mainTable.keys():
+                mainTable[frozenset(tempTable.items())] = [string]
             else:
-                mainTable[tempItems].append(string)
+                mainTable[frozenset(tempTable.items())].append(string)
         
         # Append each key's value to an output array
         output = []
