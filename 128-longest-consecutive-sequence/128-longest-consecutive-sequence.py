@@ -14,8 +14,7 @@ class Solution:
                 while incNum in numsSet:
                     subSeq[num] += 1
                     incNum += 1
-                if subSeq[num] > longest:
-                    longest = subSeq[num] 
+                longest = max(longest, subSeq[num])
                 
         return longest
         
