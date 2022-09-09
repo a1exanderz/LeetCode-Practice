@@ -1,32 +1,32 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        # Return all combinations of i, j, k triplets that sum to 0
-        # Combinations cannot be duplicates
+        # Solution explanation: 
+        # Sort the array to prevent starting with the same value (imagine a + b + c for threeSum, no repeat a's)
+        # Increment through the sorted array without repeating values (if num == prev num, continue)
+        # Then, use left and right pointers for the remainder of the array to determine values for b and c
+        # If a + b + c = 0, then save to array, otherwise increment or decrement based on distance from 0
         
+        sortedNums = sorted(nums)
         output = []
         
-        # First, sort the array, O(nlogn) time
-        nums.sort()
-        
-        # Next, iterate through the sorted array, O(n^2) time
-        for index, num in enumerate(nums):
-            if index > 0 and num == nums[index-1]:
+        for index, a in enumerate(sortedNums):
+            # Prevents starting with the same value
+            if index > 0 and a == sortedNums[index - 1]:
                 continue
             
-            l, r = index + 1, len(nums) - 1
-            
-            while l < r:
-                threeSum = num + nums[l] + nums[r]
+            b, c = index + 1, len(nums) - 1
+            while b < c:
+                threeSum = a + sortedNums[b] + sortedNums[c]
                 if threeSum > 0:
-                    r -= 1
+                    c -= 1
                 elif threeSum < 0:
-                    l += 1
+                    b += 1
                 else:
-                    output.append([num, nums[l], nums[r]])
-                    l += 1
-                    while nums[l] == nums[l - 1] and l < r:
-                        l += 1
+                    output.append([a, sortedNums[b], sortedNums[c]])
+                    b += 1
+                    while sortedNums[b] == sortedNums[b - 1] and b < c:
+                        b += 1
                         
         return output
-                        
-        
+                    
+                    
