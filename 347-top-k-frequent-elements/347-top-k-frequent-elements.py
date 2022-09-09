@@ -2,7 +2,6 @@ class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         
         # Create a hashMap of the nums array in O(n) time
-        
         hashMap = {}
         
         for num in nums:
@@ -10,7 +9,8 @@ class Solution:
                 hashMap[num] = 1
             else:
                 hashMap[num] += 1
-                
+        
+        # Sort items in O(n*log(n)) time
         sortItems = sorted(hashMap.items(), key = lambda x:x[1], reverse = True)
   
         # print(sortItems)
