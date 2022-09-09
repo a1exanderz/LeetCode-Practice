@@ -1,6 +1,6 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        # Use a two pointer method
+        # Use a two pointer method O(n) time, O(1) space
         # Start from both ends of the string. If the characters are not equal, return false
         
         # If the indexes are the same, then the character must be the same
