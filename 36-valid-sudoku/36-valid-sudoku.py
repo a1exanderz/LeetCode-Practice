@@ -53,9 +53,9 @@ class Solution:
                         
             subBoxCounter += 1
                 
-            print("1", subBoxUnique1)
-            print("2", subBoxUnique2)
-            print("3", subBoxUnique3)
+            # print("1", subBoxUnique1)
+            # print("2", subBoxUnique2)
+            # print("3", subBoxUnique3)
                 
         return True
     
