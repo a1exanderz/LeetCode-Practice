@@ -8,14 +8,10 @@ class Solution:
         # O(n) time and O(1) space
         
         maxProfit = 0
-        l, r = 0, 1
-        while r < len(prices):
-            while prices[l] > prices[r] and r < len(prices) - 1:
+        l = 0
+        for r in range(1, len(prices)):
+            if prices[l] > prices[r]:
                 l = r
-                r += 1
             maxProfit = max(maxProfit, prices[r] - prices[l])
-            # print("l", prices[l], "r", prices[r])
-            r += 1
-            
         return maxProfit
                 
