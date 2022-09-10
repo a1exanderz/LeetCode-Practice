@@ -1,50 +1,32 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        # Use a sliding window method
+        # Have a left and right pointer, l r
+        # If there are no repeats, continue incrementing r. When there is a repeat, l = r and r += 1 (start again).
+            # Repeats determined through a set
+            # Save the max length
         
-#         # Simple solution: O(n^2) time, O(1) space
-#         # For each letter in the string, check each subsequent letter until there is a repeat
-#         # Return the max
+        if len(s) == 0:
+            return 0
         
-#         maxLength = 0
-#         for i, c in enumerate(s):
-#             length = 1
-#             # print("index", i, "character", c)
-#             i += 1
-#             hashTable = {}
-#             hashTable[c] = None
-#             if i + maxLength < len(s) + 1:
-#                 while i < len(s) and s[i] not in hashTable.keys():
-#                     hashTable[s[i]] = None
-#                     # print("hashtable", hashTable, "new index", i, "next character", s[i])
-#                     length += 1
-#                     # print("length", length)
-#                     i += 1
-#             maxLength = max(length, maxLength)
+        maxLength = 1
+        l, r = 0, 1
         
-#         return maxLength
+        while r < len(s):
+            unique = set({s[l]})
+            length = 1
+            while r < len(s) and s[r] not in unique:
+                length += 1
+                maxLength = max(maxLength, length)
+                unique.add(s[r])
+                r += 1
+            # print("l", l, "r", r, unique)
+            l += 1
+            r = l + 1
+            
+        return maxLength
     
-        # Need a faster solution O(n) time
-        # Use a sliding window approach where frame should always not contain duplicates
-        # Use a set to determine if duplicate
-        # If duplicate exists, move left pointer +1 right
-        # Then remove from set
-        
-        charSet = set()
-        l = 0
-        result = 0
-        
-        for r in range(len(s)):
-            print(charSet)
-            while s[r] in charSet:
-                charSet.remove(s[l])
-                l += 1
-            charSet.add(s[r])
-            result = max(result, r - l + 1)
-
-        return result
+    # dvdf
+    # dv 
             
         
-        
-        
-        
-                
