@@ -5,6 +5,7 @@ class Solution:
         # If prices[l] > prices[r], slide both of them to the right
         # Otherwise keep incrementing r and save the profit and adjust maxProfit if needed
         # Continue until r is at end of array
+        # O(n) time and O(1) space
         
         maxProfit = 0
         l, r = 0, 1
