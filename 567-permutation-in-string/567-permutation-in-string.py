@@ -17,7 +17,8 @@ class Solution:
                 s1_hash[c] = 1
             else:
                 s1_hash[c] += 1
-                
+        
+        # Initialize s2 hash table and test first case
         l, r = 0, len(s1) - 1
         s2_hash = {}
         
