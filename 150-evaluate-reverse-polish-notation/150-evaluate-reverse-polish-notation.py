@@ -1,87 +1,36 @@
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
+        # 2 1 + 3 *
+        # 3 * (1 + 2)
+        
+        # 4 13 5 / +
+        # (13 / 5) + 4
+        
+        # Every time there are 2 numbers followed by an operation, compute and reorganize
+        
+        operations = "/*+-"
+        newTokens = []
+        
+        if len(tokens) == 1:
+            output = tokens[0]
+            return output
     
-        # 2, 1, +, 3, *
-        # 3, 3, *
-        # 9
-        
-        # 4, 13, 5, /, +
-        # 4, 2, +
-        # 6
-        
-        # 10, 6, 9, 3, +, -11, *, /, *, 17, +, 5, +
-        # 10, 6, 12, -11, *, /, *, 17, +, 5, +
-        # 10, 6, -132, /, *, 17, +, 5, +
-        # 10, 0, *, 17, +, 5, +
-        # 0, 17, +, 5, +
-        # 17, 5, +
-        # 22
-        
-#         ## Solution: O((n^2)/2) time and O(n) space
-#         # Keep iterating through the array until either * / + - is preceded by two numbers
-#         # Then process those 3 values and start from the beginning again
-#         # Continue until a value is obtained
-        
-#         tokenList = ["*", "/", "+", "-"]
-        
-#         while len(tokens) != 1:
-#             for index, token in enumerate(tokens):
-#                 if token in tokenList and tokens[index - 1] not in tokenList and tokens[index - 2] not in tokenList:
-#                     if token == "*":
-#                         tokens[index-2] = int(tokens[index-2]) * int(tokens[index-1])
-#                     elif token == "/":
-#                         tokens[index-2] = int(int(tokens[index-2]) / int(tokens[index-1]))
-#                     elif token == "+":
-#                         tokens[index-2] = int(tokens[index-2]) + int(tokens[index-1])
-#                     elif token == "-":
-#                         tokens[index-2] = int(tokens[index-2]) - int(tokens[index-1])
-#                     tokens.pop(index - 1)
-#                     tokens.pop(index - 1)
-                
-#         return tokens[0]
-
-
-        # 2 1 +
-        # 3 3 *
-        # 9
-        
-        # 4 13 5 /
-        # 4 2 +
-        # 6
-        
-        # 10 6 9 3 +
-        # 10 6 12 -11 *
-        # 10 6 -132 /
-        # 10 0 *
-        # 0 17 +
-        # 17 5 +
-        # 22
-
-        ## Solution: Try using a stack
-        # Add each token to the stack
-        # If a * / + - appears, then process the operation and pop all values from the stack. Add new value to stack
-        # Proceed until the token list is empty
-        
-        stack = []
-        for token in tokens:
-            if token == "*":
-                stack.append(stack.pop() * stack.pop())
-            elif token == "/":
-                v1, v2 = stack.pop(), stack.pop()
-                stack.append(int(v2 / v1))
-            elif token == "+":
-                stack.append(stack.pop() + stack.pop())
-            elif token == "-":
-                v1, v2 = stack.pop(), stack.pop()
-                stack.append(v2 - v1)
+        for i in range(0, len(tokens)):
+            if tokens[i] in operations and tokens[i-1] not in operations and tokens[i-2] not in operations:
+                intOne, intTwo = int(tokens[i-2]), int(tokens[i-1])
+                newTokens.pop()
+                newTokens.pop()
+                if tokens[i] == "/":
+                    newTokens.append(str(int(float(intOne) / intTwo)))
+                elif tokens[i] == "*":
+                    newTokens.append(str(intOne * intTwo))
+                elif tokens[i] == "+":
+                    newTokens.append(str(intOne + intTwo))
+                elif tokens[i] == "-":
+                    newTokens.append(str(intOne - intTwo))
             else:
-                stack.append(int(token))
-            
-        return stack[0]
-            
-                
+                newTokens.append(tokens[i])
+            # print(newTokens)
         
+        return self.evalRPN(newTokens)
                     
-        
-        
-        
