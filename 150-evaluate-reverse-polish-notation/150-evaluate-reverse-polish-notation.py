@@ -35,6 +35,7 @@ class Solution:
 #         return self.evalRPN(newTokens)
 
         # Use a stack: every time you get an operation, you compute the two previous numbers
+        # O(n) time and O(n) space
         stack = []
         operations = "/*+-"
         for i in range(0, len(tokens)):
