@@ -5,7 +5,7 @@ class Solution:
         
         while l <= h:
             m = (l + h) // 2
-            print(l, m, h)
+            # print(l, m, h)
             if nums[m] == target:
                 return m
             elif nums[m] < target:
